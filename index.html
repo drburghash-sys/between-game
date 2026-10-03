@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120b18">
+<title>بيننا | المضيف</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#09070d;--panel:#16101d;--panel2:#201426;--line:#3a2942;--text:#fff8fc;--muted:#bdaec4;--rose:#ef5f91;--rose2:#ff9abc;--gold:#edc77f;--ok:#76d9aa;--danger:#ff7b8e;--bubble:#24162b;--master:#302038}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% -15%,#401d48 0,#140d19 38%,#08060a 78%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
+button,input,textarea{font:inherit}.app{width:min(100%,760px);margin:auto;padding:12px 12px 100px}.top{position:sticky;top:0;z-index:20;padding:8px 0 10px;background:linear-gradient(#0b0810f3,#0b0810b8,transparent);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{display:flex;align-items:center;gap:10px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#ef5f91,#6f2c81);display:grid;place-items:center;font-size:24px;box-shadow:0 12px 34px #0008}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);margin-top:2px}.net{font-size:12px;color:var(--muted);border:1px solid var(--line);background:#120c16;border-radius:999px;padding:7px 9px}
+.screen{display:none}.screen.on{display:block;animation:fade .2s ease}.card{background:linear-gradient(180deg,#201427,#130d18);border:1px solid var(--line);border-radius:22px;padding:16px;margin:10px 0;box-shadow:0 18px 50px #0007}.hero{text-align:center;padding:24px 18px}.hero .mark{font-size:56px}.hero h1{margin:6px 0 5px;font-size:31px}.hero p{margin:0;color:var(--muted);line-height:1.8}.title{font-size:21px;font-weight:950;margin:2px 0 7px}.kicker{color:var(--rose2);font-size:12px;font-weight:900}.muted{color:var(--muted);line-height:1.75}.note{font-size:12px;color:#aa9ab2;line-height:1.6}.btn{border:0;border-radius:15px;padding:13px 14px;background:#281a2f;color:white;font-weight:900;cursor:pointer;transition:.15s}.btn:active{transform:scale(.98)}.btn:disabled{opacity:.42;cursor:not-allowed}.primary{background:linear-gradient(135deg,#ef5f91,#b82c67);box-shadow:0 10px 28px #b72e6740}.gold{background:linear-gradient(135deg,#f3d28f,#a66b2e);color:#2a1709}.ghost{border:1px solid var(--line);background:#17101d}.danger{background:#4c1824}.full{width:100%}.small{padding:9px 11px;border-radius:12px;font-size:13px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.input,.textarea{width:100%;border:1px solid var(--line);background:#0d0911;color:white;border-radius:14px;padding:13px;outline:none}.input:focus,.textarea:focus{border-color:#a3557d}.textarea{min-height:92px;resize:vertical}.role{padding:18px;text-align:center}.role .emo{font-size:42px}.role b{display:block;font-size:19px;margin:7px 0}.role small{color:var(--muted)}
+.cat{border:1px solid var(--line);background:#130d18;border-radius:18px;padding:13px;margin-top:9px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}.cat input{width:22px;height:22px;accent-color:#e75488;margin-top:4px}.cat h3{margin:0 0 5px;font-size:17px}.cat p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}.cat.on{border-color:#8b466c;background:#1d1020}.summary{padding:12px;border-radius:16px;background:#120c16;border:1px dashed #4b3654;color:#d9c9df}.code{font-size:36px;font-weight:1000;letter-spacing:4px;text-align:center;background:linear-gradient(90deg,#fff,#ff9fc0,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;margin:13px 0}.pill{display:inline-block;border:1px solid var(--line);background:#18101e;padding:6px 9px;border-radius:999px;font-size:12px;color:#d9c9df;margin:3px}
+.chat-shell{background:#0e0a12;border:1px solid var(--line);border-radius:24px;overflow:hidden;min-height:66vh;display:flex;flex-direction:column}.chat-head{padding:12px 14px;background:#1c1222;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.master{display:flex;gap:9px;align-items:center}.master .avatar{width:41px;height:41px;border-radius:50%;background:linear-gradient(135deg,#f1c978,#83456f);display:grid;place-items:center;font-size:21px}.master small{display:block;color:var(--muted)}.round{font-size:12px;color:#d4c0dd}.messages{flex:1;padding:16px 12px 20px;overflow:auto}.bubble{max-width:88%;padding:11px 13px;border-radius:18px;margin:8px 0;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}.from-master{margin-left:auto;background:var(--master);border:1px solid #54345e;border-bottom-right-radius:6px}.from-me{margin-right:auto;background:#392035;border:1px solid #68384f;border-bottom-left-radius:6px}.bubble .time{display:block;font-size:10px;color:#a997b1;margin-top:4px}.typing{color:#b7a4bf;font-size:12px;padding:0 16px 10px}.answerbox{padding:11px;border-top:1px solid var(--line);background:#160f1b}.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.choice{border:1px solid #5b395f;background:#23162a;border-radius:14px;padding:12px;color:white;font-weight:800;cursor:pointer}.choice.selected{outline:2px solid #ef5f91;background:#381b31}.statusbox{padding:11px 13px;border-radius:15px;background:#17101d;border:1px solid var(--line);margin-top:10px;color:#d4c2db}.reveal{display:grid;gap:8px;margin-top:10px}.reveal>div{padding:11px;border-radius:14px;background:#150e1a;border:1px solid #412c48}.reveal b{color:var(--gold)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:white;color:#25131f;padding:10px 14px;border-radius:12px;font-weight:900;opacity:0;pointer-events:none;transition:.2s;z-index:80}.toast.on{opacity:1}@keyframes fade{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:520px){.grid2,.options{grid-template-columns:1fr}.hero h1{font-size:27px}.app{padding-left:9px;padding-right:9px}.code{font-size:30px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand"><div class="logo">✦</div><div><b>بيننا</b><small>لعبة يديرها المضيف</small></div></div>
+    <div id="net" class="net">جارٍ الاتصال…</div>
+  </div>
+
+  <section id="home" class="screen on">
+    <div class="card hero"><div class="mark">🎩</div><div class="kicker">ضيف ثالث… لا ينحاز لأحد</div><h1>المضيف</h1><p>رسائل خاصة، اختيارات، أسئلة ومهام بين الزوجين. كل جهاز يرى ما يخصه فقط داخل اللعبة.</p></div>
+    <div class="grid2">
+      <div class="card role"><div class="emo">👨</div><b>أنا الزوج</b><small>أحدد البنود وأنشئ اللعبة</small><button class="btn primary full" style="margin-top:12px" onclick="husbandStart()">إنشاء لعبة</button></div>
+      <div class="card role"><div class="emo">👩</div><b>أنا الزوجة</b><small>أدخل بكود اللعبة فقط</small><button class="btn primary full" style="margin-top:12px" onclick="wifeStart()">دخول اللعبة</button></div>
+    </div>
+    <div id="resumeCard" class="card" style="display:none"><div class="title">لديك لعبة مرتبطة</div><div id="resumeText" class="muted"></div><button class="btn gold full" onclick="resumeAction()">متابعة اللعبة</button><button class="btn ghost full" style="margin-top:8px" onclick="forgetLocal()">نسيان الربط على هذا الجهاز</button></div>
+  </section>
+
+  <section id="setup" class="screen">
+    <div class="card"><div class="kicker">للزوج فقط</div><div class="title">حدود اللعبة</div><div class="muted">اختر البنود التي يسمح للمضيف باستخدامها. لن تظهر هذه الشاشة للزوجة.</div></div>
+    <div id="cats"></div>
+    <div class="card"><div id="selectedSummary" class="summary"></div><button id="createBtn" class="btn primary full" style="margin-top:12px" onclick="createRoom()">إنشاء اللعبة والحصول على الكود</button><button class="btn ghost full" style="margin-top:8px" onclick="show('home')">رجوع</button></div>
+  </section>
+
+  <section id="husbandLobby" class="screen">
+    <div class="card"><div class="kicker">اللعبة جاهزة</div><div class="title">أرسل هذا الكود للزوجة</div><div id="roomCode" class="code">—</div><div id="lobbyCats" style="text-align:center"></div><div id="wifeStatus" class="statusbox">بانتظار دخول الزوجة…</div><button class="btn ghost full" style="margin-top:10px" onclick="copyCode()">نسخ الكود</button><button class="btn danger full" style="margin-top:8px" onclick="endGame()">إلغاء اللعبة</button></div>
+  </section>
+
+  <section id="wifeJoin" class="screen">
+    <div class="card"><div class="kicker">دخول الزوجة</div><div class="title">اكتبي كود اللعبة</div><input id="joinCode" class="input" maxlength="8" placeholder="مثال: G4K8M2Q7" autocomplete="off"><button id="joinBtn" class="btn primary full" style="margin-top:10px" onclick="joinRoom()">دخول</button><div id="joinStatus" class="muted" style="margin-top:10px;white-space:pre-wrap"></div><div class="note" style="margin-top:8px">يمكنك تخطي أي سؤال أثناء اللعبة بدون خصم.</div></div>
+    <button class="btn ghost full" onclick="show('home')">رجوع</button>
+  </section>
+
+  <section id="game" class="screen">
+    <div class="chat-shell">
+      <div class="chat-head"><div class="master"><div class="avatar">🎩</div><div><b>المضيف</b><small id="roleLabel">—</small></div></div><div id="roundLabel" class="round">الجولة 1</div></div>
+      <div id="messages" class="messages"></div>
+      <div id="typing" class="typing" style="display:none">المضيف يكتب…</div>
+      <div id="answerArea" class="answerbox"></div>
+    </div>
+    <div class="toolbar"><button class="btn ghost small" onclick="renderGame()">تحديث</button><button id="leaveBtn" class="btn danger small" onclick="leaveGame()">الخروج من اللعبة</button></div>
+  </section>
+</div>
+<div id="toast" class="toast"></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInAnonymously,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getDatabase,ref,set,get,update,onValue,remove} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig={apiKey:"AIzaSyBd36jTJ1Z-SrhyXk_jXOcVBjPvVFGfpek",authDomain:"couple-battleship.firebaseapp.com",databaseURL:"https://couple-battleship-default-rtdb.firebaseio.com",projectId:"couple-battleship",storageBucket:"couple-battleship.firebasestorage.app",messagingSenderId:"1030235226722",appId:"1:1030235226722:web:111d78d035944a17a3873b"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app);
+const $=id=>document.getElementById(id);
+
+const CATEGORIES=[
+ {id:"fun",icon:"😄",name:"مرح وخفيف",desc:"مواقف مضحكة، عادات غريبة، ماذا لو، واختيارات خفيفة."},
+ {id:"know",icon:"🧠",name:"معرفة الشريك",desc:"الأذواق، العادات اليومية، التفاصيل الصغيرة وما يحبه الطرف الآخر."},
+ {id:"memories",icon:"📸",name:"ذكرياتنا",desc:"بداية العلاقة، الخطوبة، الزواج، السفر والمواقف الجميلة."},
+ {id:"romance",icon:"❤️",name:"رومانسية",desc:"الاهتمام، الصفات الجميلة، الموعد المثالي والكلام المحبوب."},
+ {id:"bold",icon:"🔥",name:"جرأة زوجية",desc:"الانجذاب، القرب والمودة، التفضيلات الخاصة والتحديات الرومانسية."},
+ {id:"attraction",icon:"😍",name:"المظهر والجاذبية",desc:"الشعر، اللبس، العطر، المكياج، الجسم والإطلالة."},
+ {id:"future",icon:"🔮",name:"المستقبل",desc:"السفر، السكن، الأبناء، الأمنيات والأشياء التي تريدان تجربتها."},
+ {id:"travel",icon:"✈️",name:"السفر والخروج",desc:"الوجهات، الفنادق، المطاعم، الأنشطة والرحلات المفضلة."},
+ {id:"tasks",icon:"🎯",name:"تحديات ومهام",desc:"رسالة، صورة، تسجيل صوتي، تصرف لطيف، مفاجأة أو مهمة بسيطة."}
+];
+
+const BANK=[
+ {cat:"fun",type:"choice",h:"اختر سرًا: أيهما أقرب لسهرة ممتعة لكما؟",w:"اختاري سرًا: أيهما أقرب لسهرة ممتعة لكما؟",options:["خروج مفاجئ","جلسة هادئة في البيت","عشاء وتجربة جديدة","مشوار بلا خطة"]},
+ {cat:"fun",type:"text",h:"ما العادة الصغيرة التي تفعلها زوجتك وتجعلك تبتسم دون أن تخبرها غالبًا؟",w:"ما العادة الصغيرة التي يفعلها زوجك وتجعلك تبتسمين دون أن تخبريه غالبًا؟"},
+ {cat:"fun",type:"choice",h:"لو أعطاكما المضيف ساعتين بلا أي التزام، ماذا تختار؟",w:"لو أعطاكما المضيف ساعتين بلا أي التزام، ماذا تختارين؟",options:["قهوة","مشوار","فيلم","نوم"]},
+ {cat:"fun",type:"text",h:"اذكر موقفًا بسيطًا بينكما ما زال يضحكك كلما تذكرته.",w:"اذكري موقفًا بسيطًا بينكما ما زال يضحكك كلما تذكرتِه."},
+
+ {cat:"know",type:"choice",h:"ما الشيء الذي تتوقع أن تختاره زوجتك الآن؟",w:"أي خيار يعبّر عنك أكثر الآن؟",options:["هدوء","طلعة","قهوة","نوم"]},
+ {cat:"know",type:"text",h:"ما الطلب الصغير الذي تعرف أن زوجتك تفرح به حتى لو لم تطلبه؟",w:"ما الطلب الصغير الذي تعرفين أن زوجك يفرح به حتى لو لم يطلبه؟"},
+ {cat:"know",type:"choice",h:"اختر الشيء الذي تعتقد أنه أهم لزوجتك في وقت الراحة.",w:"اختاري الشيء الأهم لك في وقت الراحة.",options:["الهدوء","الاهتمام","الخروج","الخصوصية"]},
+ {cat:"know",type:"text",h:"اذكر شيئًا صغيرًا تعرف أن زوجتك لا تحبه في يومها العادي.",w:"اذكري شيئًا صغيرًا تعرفين أن زوجك لا يحبه في يومه العادي."},
+
+ {cat:"memories",type:"text",h:"اختر ذكرى قديمة بينكما تتمنى أن تعيش تفاصيلها مرة أخرى.",w:"اختاري ذكرى قديمة بينكما تتمنين أن تعيشي تفاصيلها مرة أخرى."},
+ {cat:"memories",type:"choice",h:"أي مرحلة تحمل عندك ذكريات ألطف؟",w:"أي مرحلة تحمل عندك ذكريات ألطف؟",options:["البدايات","الخطوبة","أول سنة زواج","السفر"]},
+ {cat:"memories",type:"text",h:"ما أول رحلة أو مشوار ما زلت تتذكر تفاصيله بوضوح؟",w:"ما أول رحلة أو مشوار ما زلت تتذكرين تفاصيله بوضوح؟"},
+ {cat:"memories",type:"text",h:"اذكر موقفًا قديمًا شعرت فيه أنكما فريق واحد فعلًا.",w:"اذكري موقفًا قديمًا شعرتِ فيه أنكما فريق واحد فعلًا."},
+
+ {cat:"romance",type:"text",h:"ما التصرف الذي تفعله زوجتك ويشعرك باهتمامها بك أكثر؟",w:"ما التصرف الذي يفعله زوجك ويشعرك باهتمامه بك أكثر؟"},
+ {cat:"romance",type:"choice",h:"أي نوع من الاهتمام تفضله غالبًا؟",w:"أي نوع من الاهتمام تفضلينه غالبًا؟",options:["كلام جميل","وقت خاص","مفاجأة","لمسة حنونة"]},
+ {cat:"romance",type:"text",h:"اكتب جملة قصيرة تحب أن تسمعها من زوجتك الليلة.",w:"اكتبي جملة قصيرة تحبين أن تسمعيها من زوجك الليلة."},
+ {cat:"romance",type:"text",h:"ما أفضل موعد بسيط يمكن أن تستمتع به مع زوجتك دون تجهيز كبير؟",w:"ما أفضل موعد بسيط يمكن أن تستمتعي به مع زوجك دون تجهيز كبير؟"},
+
+ {cat:"bold",type:"choice",h:"اختر الجو الذي تراه أكثر جاذبية لسهرة خاصة.",w:"اختاري الجو الذي ترينه أكثر جاذبية لسهرة خاصة.",options:["إضاءة هادئة","موسيقى","عطر مميز","مفاجأة بلا تخطيط"]},
+ {cat:"bold",type:"text",h:"ما نوع القرب أو المودة الذي يجعلك تشعر بأن السهرة مميزة؟",w:"ما نوع القرب أو المودة الذي يجعلك تشعرين بأن السهرة مميزة؟"},
+ {cat:"bold",type:"choice",h:"أي عنصر يصنع فرقًا أكبر في الأجواء الخاصة؟",w:"أي عنصر يصنع فرقًا أكبر في الأجواء الخاصة؟",options:["الوقت","الخصوصية","المظهر","المفاجأة"]},
+ {cat:"bold",type:"text",h:"اكتب تفضيلًا زوجيًا بسيطًا تحب أن يعرفه الطرف الآخر.",w:"اكتبي تفضيلًا زوجيًا بسيطًا تحبين أن يعرفه الطرف الآخر."},
+
+ {cat:"attraction",type:"text",h:"ما الإطلالة التي تحبها أكثر على زوجتك؟",w:"ما الإطلالة التي تحبينها أكثر على زوجك؟"},
+ {cat:"attraction",type:"choice",h:"أي تفصيل يلفت انتباهك أولًا؟",w:"أي تفصيل يلفت انتباهك أولًا؟",options:["اللبس","العطر","الشعر","الابتسامة"]},
+ {cat:"attraction",type:"text",h:"اذكر عطرًا أو رائحة تربطها بزوجتك فورًا.",w:"اذكري عطرًا أو رائحة تربطينها بزوجك فورًا."},
+ {cat:"attraction",type:"text",h:"ما أكثر إطلالة لزوجتك ما زلت تتذكرها؟",w:"ما أكثر إطلالة لزوجك ما زلت تتذكرينها؟"},
+
+ {cat:"future",type:"text",h:"اذكر شيئًا واحدًا تتمنى أن تجرباه معًا خلال السنة القادمة.",w:"اذكري شيئًا واحدًا تتمنين أن تجرباه معًا خلال السنة القادمة."},
+ {cat:"future",type:"choice",h:"لو توفر لكما أسبوع كامل، ما المشروع الأجمل؟",w:"لو توفر لكما أسبوع كامل، ما المشروع الأجمل؟",options:["سفر","بيت هادئ","مغامرة جديدة","زيارة مكان قديم"]},
+ {cat:"future",type:"text",h:"ما عادة زوجية صغيرة تتمنى أن تصبح ثابتة بينكما مستقبلًا؟",w:"ما عادة زوجية صغيرة تتمنين أن تصبح ثابتة بينكما مستقبلًا؟"},
+ {cat:"future",type:"text",h:"صف يومًا مثاليًا لكما بعد خمس سنوات بكلمات قليلة.",w:"صفي يومًا مثاليًا لكما بعد خمس سنوات بكلمات قليلة."},
+
+ {cat:"travel",type:"choice",h:"اختر نوع الرحلة التي ترغب بها الآن.",w:"اختاري نوع الرحلة التي ترغبين بها الآن.",options:["بحر","جبال","مدينة","ريف"]},
+ {cat:"travel",type:"text",h:"ما المكان الذي تتمنى أن تسافر إليه مع زوجتك ولو لثلاثة أيام فقط؟",w:"ما المكان الذي تتمنين أن تسافري إليه مع زوجك ولو لثلاثة أيام فقط؟"},
+ {cat:"travel",type:"choice",h:"في السفر، أي شيء يهمك أكثر؟",w:"في السفر، أي شيء يهمك أكثر؟",options:["الفندق","الأكل","الفعاليات","الهدوء"]},
+ {cat:"travel",type:"text",h:"اقترح مشوارًا قريبًا يمكن تنفيذه دون تخطيط طويل.",w:"اقترحي مشوارًا قريبًا يمكن تنفيذه دون تخطيط طويل."},
+
+ {cat:"tasks",type:"task",h:"مهمتك: أرسل لزوجتك الآن رسالة قصيرة فيها شيء محدد تقدّره فيها.",w:"مهمتك: أرسلي لزوجك الآن رسالة قصيرة فيها شيء محدد تقدّرينه فيه."},
+ {cat:"tasks",type:"task",h:"مهمتك: اختر أغنية أو مقطعًا قصيرًا وأرسله لزوجتك مع سبب اختيارك.",w:"مهمتك: اختاري أغنية أو مقطعًا قصيرًا وأرسليه لزوجك مع سبب اختيارك."},
+ {cat:"tasks",type:"task",h:"مهمتك: خلال اليوم نفّذ لزوجتك تصرفًا لطيفًا دون أن تخبرها أنه من اللعبة.",w:"مهمتك: خلال اليوم نفّذي لزوجك تصرفًا لطيفًا دون أن تخبريه أنه من اللعبة."},
+ {cat:"tasks",type:"task",h:"مهمتك: اقترح مفاجأة بسيطة يمكن تنفيذها هذا الأسبوع.",w:"مهمتك: اقترحي مفاجأة بسيطة يمكن تنفيذها هذا الأسبوع."}
+];
+
+let uid=null,room=null,role=null,rd=null,unsub=null,authAttempt=null;
+let selected=new Set(CATEGORIES.map(x=>x.id));
+let selectedChoice=null;
+
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("on"));$(id).classList.add("on");window.scrollTo({top:0,behavior:"instant"})}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("on");setTimeout(()=>$("toast").classList.remove("on"),1700)}
+function code8(){const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let s="G";for(let i=0;i<7;i++)s+=chars[Math.floor(Math.random()*chars.length)];return s}
+function remember(){if(room&&role)localStorage.setItem("between_game_pair",JSON.stringify({room,role}))}
+function localPair(){try{return JSON.parse(localStorage.getItem("between_game_pair")||"null")}catch{return null}}
+function clearLocal(){localStorage.removeItem("between_game_pair")}
+function catName(id){return CATEGORIES.find(x=>x.id===id)?.name||id}
+
+onValue(ref(db,".info/connected"),s=>$("net").textContent=s.val()===true?"الخادم متصل ✓":"الخادم غير متصل");
+onAuthStateChanged(auth,u=>{if(u){uid=u.uid;resumeLinked()}});
+async function ensureAuth(){
+ if(uid)return uid;
+ if(!authAttempt)authAttempt=(async()=>{await auth.authStateReady();if(auth.currentUser){uid=auth.currentUser.uid;return uid}const x=await signInAnonymously(auth);uid=x.user.uid;return uid})().finally(()=>authAttempt=null);
+ return authAttempt
+}
+ensureAuth().catch(e=>{$("net").textContent="تعذر تسجيل الدخول";console.error(e)});
+
+function renderCats(){
+ $("cats").innerHTML="";
+ CATEGORIES.forEach(c=>{
+  const d=document.createElement("label");d.className="cat "+(selected.has(c.id)?"on":"");
+  d.innerHTML='<input type="checkbox" '+(selected.has(c.id)?"checked":"")+'><div><h3>'+c.icon+" "+esc(c.name)+'</h3><p>'+esc(c.desc)+'</p></div>';
+  d.querySelector("input").addEventListener("change",e=>{e.target.checked?selected.add(c.id):selected.delete(c.id);renderCats();renderSelected()});
+  $("cats").appendChild(d)
+ });
+ renderSelected()
+}
+function renderSelected(){
+ const names=CATEGORIES.filter(c=>selected.has(c.id)).map(c=>c.icon+" "+c.name);
+ $("selectedSummary").innerHTML=names.length?"البنود المسموحة: "+names.map(x=>'<span class="pill">'+esc(x)+'</span>').join(""):"يجب اختيار بند واحد على الأقل.";
+ $("createBtn").disabled=!selected.size
+}
+window.husbandStart=()=>{selected=new Set(CATEGORIES.map(x=>x.id));renderCats();show("setup")};
+window.wifeStart=()=>{$("joinStatus").textContent="";$("joinCode").value="";show("wifeJoin")};
+
+async function createRoom(){
+ try{
+  await ensureAuth();if(!selected.size)return toast("اختر بندًا واحدًا على الأقل");
+  role="husband";room=code8();
+  const cats=Object.fromEntries([...selected].map(x=>[x,true]));
+  await set(ref(db,"rooms/"+room),{game:"between-game",hostUid:uid,guestUid:null,status:"waiting",categories:cats,round:0,createdAt:Date.now(),startedAt:null,skips:{}});
+  remember();listen();renderHusbandLobby();show("husbandLobby");toast("تم إنشاء اللعبة")
+ }catch(e){console.error(e);toast("تعذر إنشاء اللعبة")}
+}
+window.createRoom=createRoom;
+
+function renderHusbandLobby(){
+ $("roomCode").textContent=room||"—";
+ const cs=Object.keys(rd?.categories||{}).filter(k=>rd.categories[k]);
+ $("lobbyCats").innerHTML=cs.map(x=>'<span class="pill">'+esc(catName(x))+'</span>').join("");
+ $("wifeStatus").textContent=rd?.guestUid?"دخلت الزوجة ✓ سيتم بدء اللعبة الآن.":"بانتظار دخول الزوجة…"
+}
+
+async function joinRoom(){
+ const btn=$("joinBtn"),st=$("joinStatus");let r=$("joinCode").value.replace(/[\s\u200e\u200f\u202a-\u202e\u2066-\u2069]/g,"").toUpperCase();
+ if(!/^G[A-Z2-9]{7}$/.test(r)){st.textContent="أدخلي كود اللعبة المكوّن من 8 أحرف وأرقام.";return}
+ btn.disabled=true;btn.textContent="جارٍ الدخول…";
+ try{
+  await ensureAuth();
+  st.textContent="جارٍ تثبيت هذا الجهاز…";
+  await update(ref(db,"rooms/"+r),{guestUid:uid,status:"playing",startedAt:Date.now()});
+  const s=await get(ref(db,"rooms/"+r));
+  if(!s.exists()||s.val().game!=="between-game"){st.textContent="لا توجد لعبة صالحة بهذا الكود.";return}
+  if(s.val().hostUid===uid){st.textContent="هذا الجهاز هو جهاز الزوج الذي أنشأ اللعبة.";return}
+  if(s.val().guestUid!==uid){st.textContent="تعذر ربط هذا الجهاز باللعبة.";return}
+  role="wife";room=r;rd=s.val();remember();listen();show("game");renderGame();toast("تم الدخول ✓")
+ }catch(e){
+  console.error(e);const m=String(e?.code||e?.message||"");
+  st.textContent=/permission|denied/i.test(m)?"رفضت قاعدة البيانات عملية الربط. سنحتاج تعديل قواعد Firebase لهذه اللعبة.":"تعذر الدخول: "+m
+ }finally{btn.disabled=false;btn.textContent="دخول"}
+}
+window.joinRoom=joinRoom;
+
+function listen(){
+ if(unsub)unsub();
+ unsub=onValue(ref(db,"rooms/"+room),s=>{
+  if(!s.exists()){clearLocal();room=null;rd=null;role=null;if(unsub){unsub();unsub=null}renderHome();show("home");toast("انتهت اللعبة");return}
+  rd=s.val();
+  if(role==="husband"&&rd.guestUid&&rd.status!=="playing"){update(ref(db,"rooms/"+room),{status:"playing",startedAt:Date.now()}).catch(()=>{})}
+  if(role==="husband"&&!rd.guestUid){renderHusbandLobby();if(!$("husbandLobby").classList.contains("on"))show("husbandLobby");return}
+  if(rd.guestUid){show("game");renderGame()}
+ })
+}
+
+function filteredBank(){
+ const allowed=Object.keys(rd?.categories||{}).filter(k=>rd.categories[k]);
+ let arr=BANK.filter(q=>allowed.includes(q.cat));
+ if(!arr.length)arr=BANK.filter(q=>q.cat==="fun");
+ const seed=[...String(room||"")].reduce((a,c)=>a+c.charCodeAt(0),0);
+ return arr.map((x,i)=>({x,k:(seed+i*37)%997})).sort((a,b)=>a.k-b.k).map(o=>o.x)
+}
+function currentQuestion(){
+ const arr=filteredBank(),n=Number(rd?.round||0);return arr[n%arr.length]
+}
+function answerFor(r,n){return rd?.answers?.[n]?.[r]||null}
+function skipped(n){return !!rd?.skips?.[n]}
+
+function nowTime(){return new Intl.DateTimeFormat("ar-SA",{hour:"numeric",minute:"2-digit"}).format(new Date())}
+function bubble(text,who){
+ return '<div class="bubble '+(who==="me"?"from-me":"from-master")+'">'+esc(text)+'<span class="time">'+nowTime()+'</span></div>'
+}
+function introText(){
+ if(Number(rd?.round||0)===0)return role==="wife"?"أهلًا بكِ. زوجك حدّد حدود اللعبة قبل أن تبدأي. يمكنكِ تخطي أي سؤال في أي وقت، ولن تُخصم أي نقطة.":"بدأت اللعبة. أنا سأدير الجولات، وأنت لن ترى إجابة زوجتك حتى تنتهي من دورها.";
+ return "الجولة الجديدة جاهزة. أجب بطريقتك، ثم انتظر الطرف الآخر."
+}
+
+function renderGame(){
+ if(!rd||!room)return;
+ $("roleLabel").textContent=role==="husband"?"أنت الزوج":"أنتِ الزوجة";
+ const n=Number(rd.round||0),q=currentQuestion(),mine=answerFor(role,n),other=answerFor(role==="husband"?"wife":"husband",n);
+ $("roundLabel").textContent="الجولة "+(n+1);
+ const msgs=[];
+ msgs.push(bubble(introText(),"master"));
+ msgs.push(bubble(role==="husband"?q.h:q.w,"master"));
+ if(mine)msgs.push(bubble(mine.text||mine.value||"تم","me"));
+ if(skipped(n))msgs.push(bubble("تم تخطي هذا السؤال. ننتقل مباشرة إلى جولة أخرى.","master"));
+ $("messages").innerHTML=msgs.join("");
+ const a=$("answerArea");
+ if(skipped(n)){a.innerHTML='<div class="statusbox">جارٍ الانتقال…</div>';return}
+ if(!mine){
+  let inner="";
+  if(q.type==="choice"){
+   inner='<div class="note">اختر إجابة واحدة:</div><div class="options">'+q.options.map((o,i)=>'<button class="choice '+(selectedChoice===i?"selected":"")+'" onclick="pickChoice('+i+')">'+esc(o)+'</button>').join("")+'</div><button class="btn primary full" style="margin-top:9px" '+(selectedChoice===null?"disabled":"")+' onclick="submitChoice()">إرسال الإجابة</button>'
+  }else if(q.type==="task"){
+   inner='<div class="muted">نفّذ المهمة ثم اضغط تم.</div><button class="btn primary full" style="margin-top:9px" onclick="submitTask()">تم التنفيذ / تم الاتفاق</button>'
+  }else{
+   inner='<textarea id="textAnswer" class="textarea" placeholder="اكتب إجابتك هنا…"></textarea><button class="btn primary full" style="margin-top:9px" onclick="submitText()">إرسال الإجابة</button>'
+  }
+  if(role==="wife")inner+='<button class="btn ghost full" style="margin-top:8px" onclick="skipQuestion()">تخطي السؤال</button>';
+  a.innerHTML=inner
+ }else if(!other){
+  a.innerHTML='<div class="statusbox">'+(role==="husband"?"تم استلام إجابتك. بانتظار الزوجة…":"تم استلام إجابتك. بانتظار الزوج…")+'</div>'+(role==="wife"?'<button class="btn ghost full" style="margin-top:8px" onclick="skipQuestion()">تخطي السؤال</button>':"")
+ }else{
+  const h=answerFor("husband",n),w=answerFor("wife",n);
+  a.innerHTML='<div class="statusbox">وصلت الإجابتان ✓</div><div class="reveal"><div><b>إجابة الزوج</b><br>'+esc(h?.text||h?.value||"تم")+'</div><div><b>إجابة الزوجة</b><br>'+esc(w?.text||w?.value||"تم")+'</div></div>'+(role==="husband"?'<button class="btn gold full" style="margin-top:10px" onclick="nextRound()">الجولة التالية</button>':'<div class="note" style="margin-top:10px">بانتظار الزوج لبدء الجولة التالية.</div>')
+ }
+ setTimeout(()=>{$("messages").scrollTop=$("messages").scrollHeight},50)
+}
+window.renderGame=renderGame;
+window.pickChoice=i=>{selectedChoice=i;renderGame()};
+window.submitChoice=async()=>{const q=currentQuestion();if(selectedChoice===null)return;await saveAnswer(q.options[selectedChoice]);selectedChoice=null};
+window.submitText=async()=>{const t=$("textAnswer").value.trim();if(!t)return toast("اكتب إجابتك أولًا");await saveAnswer(t)};
+window.submitTask=async()=>saveAnswer("تم ✓");
+
+async function saveAnswer(text){
+ const n=Number(rd.round||0);try{await set(ref(db,"rooms/"+room+"/answers/"+n+"/"+role),{text,at:Date.now()})}catch(e){console.error(e);toast("تعذر حفظ الإجابة")}
+}
+async function skipQuestion(){
+ if(role!=="wife")return;
+ const n=Number(rd.round||0);
+ try{
+  const patch={};patch["rooms/"+room+"/skips/"+n]=true;patch["rooms/"+room+"/round"]=n+1;
+  await update(ref(db),patch);selectedChoice=null;toast("تم التخطي")
+ }catch(e){console.error(e);toast("تعذر التخطي")}
+}
+window.skipQuestion=skipQuestion;
+
+async function nextRound(){
+ if(role!=="husband")return;const n=Number(rd.round||0);
+ try{await update(ref(db,"rooms/"+room),{round:n+1});selectedChoice=null}catch(e){console.error(e);toast("تعذر الانتقال")}
+}
+window.nextRound=nextRound;
+
+async function resumeLinked(){
+ const p=localPair();if(!p||room)return;
+ try{
+  const s=await get(ref(db,"rooms/"+p.room));
+  if(!s.exists()||s.val().game!=="between-game"){clearLocal();renderHome();return}
+  const x=s.val();if(x.hostUid!==uid&&x.guestUid!==uid){clearLocal();renderHome();return}
+  room=p.room;role=x.hostUid===uid?"husband":"wife";rd=x;remember();listen();renderHome()
+ }catch(e){console.warn(e);renderHome()}
+}
+function renderHome(){
+ const p=localPair(),card=$("resumeCard");
+ if(p&&room&&rd){card.style.display="block";$("resumeText").textContent=(role==="husband"?"أنت الزوج":"أنتِ الزوجة")+" — كود اللعبة "+room}else card.style.display="none"
+}
+window.resumeAction=()=>{if(!room||!rd)return;if(role==="husband"&&!rd.guestUid){renderHusbandLobby();show("husbandLobby")}else{show("game");renderGame()}};
+window.forgetLocal=()=>{clearLocal();room=null;rd=null;role=null;if(unsub){unsub();unsub=null}renderHome();show("home")};
+
+window.copyCode=async()=>{try{await navigator.clipboard.writeText(room);toast("تم نسخ الكود")}catch{toast("الكود: "+room)}};
+window.endGame=async()=>{if(role!=="husband"||!room)return;if(!confirm("إنهاء اللعبة وحذف الغرفة؟"))return;try{await remove(ref(db,"rooms/"+room))}catch(e){toast("تعذر الإنهاء")}};
+window.leaveGame=async()=>{
+ if(!room)return;
+ if(role==="husband"){if(confirm("إنهاء اللعبة وحذف الغرفة؟")){try{await remove(ref(db,"rooms/"+room))}catch(e){toast("تعذر الإنهاء")}}}
+ else{if(confirm("الخروج من اللعبة؟")){try{await update(ref(db,"rooms/"+room),{guestUid:null,status:"waiting"})}catch(e){}clearLocal();room=null;rd=null;role=null;if(unsub){unsub();unsub=null}renderHome();show("home")}}
+};
+
+renderCats();renderHome();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{});
+</script>
+</body>
+</html>
